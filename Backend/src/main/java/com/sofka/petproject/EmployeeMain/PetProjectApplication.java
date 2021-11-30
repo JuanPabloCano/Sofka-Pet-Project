@@ -1,4 +1,4 @@
-package com.sofka.petproject;
+package com.sofka.petproject.EmployeeMain;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
