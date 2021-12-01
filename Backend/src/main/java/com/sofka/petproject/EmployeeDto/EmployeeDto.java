@@ -2,8 +2,7 @@ package com.sofka.petproject.EmployeeDto;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeeDto {
