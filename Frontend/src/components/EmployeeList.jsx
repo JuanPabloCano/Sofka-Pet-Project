@@ -11,10 +11,10 @@ function EmployeeList() {
     useEffect(() => {
         getEmployees();
     }, [])
-    
+
     const getEmployees = () => {
         EmployeeService.getEmployees().then(response => {
-            if(response.ok) {
+            if (response.ok) {
                 response.json().then(data => {
                     setEmployees(data);
                 })
@@ -23,15 +23,20 @@ function EmployeeList() {
     }
 
     const addEmployee = () => {
-        navigate("/employee/add", {replace: true});
+        navigate("/employee/add", { replace: true });
     }
+
+    const editEmployee = (id) => {
+        navigate(`/employee/update/${id}`, { replace: true });
+    }
+
 
     return (
         <div className="mt-5">
             <div className="mb-4 text-center col-auto"><h3>Lista de empleados</h3></div>
 
             <div className="row">
-                <button className="btn btn-primary" onClick={() => {addEmployee()}}> Agregar empleado </button>
+                <button className="btn btn-primary" onClick={() => { addEmployee() }}> Agregar empleado </button>
             </div>
 
             <table className="table table-bordered">
@@ -54,10 +59,10 @@ function EmployeeList() {
                                     <td>{employee.lastName}</td>
                                     <td>{employee.emailId}</td>
                                     <td>
-                                    <div className="text-center">
-                                        <button className="btn btn-light">Edit</button>
-                                        <button style={{marginLeft: "10px"}} className="btn btn-dark">Delete</button>
-                                    </div>
+                                        <div className="text-center">
+                                            <button className="btn btn-light" onClick={() => editEmployee(employee.id)}>Edit</button>
+                                            <button style={{ marginLeft: "10px" }} className="btn btn-dark">Delete</button>
+                                        </div>
                                     </td>
                                 </tr>
                             )
