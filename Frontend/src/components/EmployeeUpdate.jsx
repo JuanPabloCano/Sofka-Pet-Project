@@ -27,8 +27,6 @@ const EmployeeUpdate = () => {
                 });
             });
         })
-
-        console.log(employee);
     }, [id])
 
     let navigate = useNavigate();
