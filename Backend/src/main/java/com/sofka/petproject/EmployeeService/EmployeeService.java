@@ -1,39 +1,58 @@
 package com.sofka.petproject.EmployeeService;
 
+import com.sofka.petproject.EmployeeDto.EmployeeDto;
+import com.sofka.petproject.EmployeeMapper.EmployeeDtoMapper;
 import com.sofka.petproject.EmployeeModel.EmployeeModel;
-import com.sofka.petproject.EmployeeRepository.EmployeeAppInterface;
 import com.sofka.petproject.EmployeeRepository.EmployeeRepository;
+import com.sofka.petproject.EmployeeValidator.EmployeeValidationException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 @AllArgsConstructor
 @Service
-public class EmployeeService implements EmployeeAppInterface {
+public class EmployeeService{
+
+    public static final String ID_NOT_FOUND = "Id no encontrado";
 
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    @Autowired
+    private EmployeeDtoMapper employeeDtoMapper;
 
-    @Override
-    public List<EmployeeModel> list() {
-        return (List<EmployeeModel>) employeeRepository.findAll();
+
+    public List<EmployeeDto> getAllEmployees(){
+        return employeeDtoMapper.entitiesToDto(employeeRepository.findAll())
+                .stream()
+                .map(item -> new EmployeeDto(item.getId(), item.getName(), item.getLastName(),
+                        item.getEmail()))
+                .collect(Collectors.toList());
     }
 
-    @Override
-    public EmployeeModel save(EmployeeModel employeeModel) {
-        return employeeRepository.save(employeeModel);
+    public ResponseEntity<EmployeeModel> save(@RequestBody EmployeeDto employeeDto){
+        return new ResponseEntity<>(employeeRepository.save(
+                employeeDtoMapper.dtoToEntity(employeeDto)), HttpStatus.CREATED);
     }
 
-    @Override
-    public void delete(Long id) {
-        employeeRepository.delete(getById(id));
+    public ResponseEntity<EmployeeDto> getById(@PathVariable(value = "id")Long id){
+        return new ResponseEntity<>(employeeDtoMapper.entityToDto(employeeRepository
+                .findById(id).orElseThrow(() -> new EmployeeValidationException(ID_NOT_FOUND)))
+                ,HttpStatus.OK);
     }
 
-    @Override
-    public EmployeeModel getById(Long id) {
-        return employeeRepository.findById(id).orElseThrow();
+    public void deleteById(@PathVariable(value = "id")Long id){
+        EmployeeDto employeeDto = employeeDtoMapper.entityToDto(employeeRepository.findById(id)
+                .orElseThrow(() -> new EmployeeValidationException(ID_NOT_FOUND)));
+        employeeRepository.deleteById(employeeDto.getId());
+        new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
