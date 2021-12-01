@@ -11,6 +11,17 @@ class EmployeeService {
         })
     }
 
+    async saveEmployee (employee) {
+        return fetch(HOST_API + '/employees', {
+            method: 'POST',
+            body: JSON.stringify(employee),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .catch(error => console.error('Error: ', error))
+    }
+
 }
 
 export default new EmployeeService();

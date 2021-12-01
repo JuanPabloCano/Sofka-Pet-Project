@@ -23,7 +23,6 @@ function EmployeeList() {
     }
 
     const addEmployee = () => {
-        console.log(employees);
         navigate("/employee/add", {replace: true});
     }
 
