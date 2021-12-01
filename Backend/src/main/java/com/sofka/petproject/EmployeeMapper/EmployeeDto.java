@@ -1,4 +1,4 @@
-package com.sofka.petproject.EmployeeDto;
+package com.sofka.petproject.EmployeeMapper;
 
 import lombok.*;
 

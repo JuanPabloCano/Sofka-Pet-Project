@@ -1,6 +1,5 @@
 package com.sofka.petproject.EmployeeMapper;
 
-import com.sofka.petproject.EmployeeDto.EmployeeDto;
 import com.sofka.petproject.EmployeeModel.EmployeeModel;
 import com.sofka.petproject.EmployeeValidator.EmployeeValidationException;
 import com.sofka.petproject.EmployeeValidator.EmployeeValidator;
