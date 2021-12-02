@@ -1,5 +1,5 @@
 
-const HOST_API = 'http://localhost:8080/api/v1/';
+const HOST_API = 'http://localhost:4000/api/v1/';
 
 class EmployeeService {
 
@@ -28,7 +28,7 @@ class EmployeeService {
     }
 
     async updateEmployee (employeeId, employee) {
-        return fetch(HOST_API + '/employee/' + employeeId, {
+        return fetch(HOST_API + '/employees/' + employeeId, {
             method: 'PUT',
             body: JSON.stringify(employee),
             headers: {

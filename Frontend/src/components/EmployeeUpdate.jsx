@@ -39,22 +39,22 @@ const EmployeeUpdate = () => {
         });
     }
 
-    // const updateEmployee = (event) => {
-    //     event.preventDefault();
+    const updateEmployee = (event) => {
+        event.preventDefault();
 
-    //     setEmployee({
-    //         ...employee,
-    //         firstName: event.target.firstName.value,
-    //         lastName: event.target.lastName.value,
-    //         emailId: event.target.emailId.value,
-    //     });
+        setEmployee({
+            ...employee,
+            firstName: event.target.firstName.value,
+            lastName: event.target.lastName.value,
+            emailId: event.target.emailId.value,
+        });
 
-    //     console.log(employee);
-
-    //     EmployeeService.updateEmployee(employee.id, employee).then(response => {
-    //         console.log(response);
-    //     })    
-    // }
+        EmployeeService.updateEmployee(employee.id, employee).then(response => {
+            response.json().then(data => {
+                navigate('/employees');
+            })
+        })    
+    }
 
     const handleCancel = (event) => {
         navigate("/employees", { replace: true });
@@ -67,7 +67,7 @@ const EmployeeUpdate = () => {
 
             <div className="row h-100 justify-content-center align-items-center">
                 <div className="col-auto">
-                    <form action="" className="form-horizontal justify-content-center" /* onSubmit={updateEmployee} */>
+                    <form action="" className="form-horizontal justify-content-center" onSubmit={updateEmployee}>
 
                         <div className="form-group ">
                             <div className="mb-2">
