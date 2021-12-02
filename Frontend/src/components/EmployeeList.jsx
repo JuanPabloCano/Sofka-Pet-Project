@@ -30,6 +30,12 @@ function EmployeeList() {
         navigate(`/employee/update/${id}`, { replace: true });
     }
 
+    const deleteEmployee = (id) => {
+        EmployeeService.deleteEmployee(id).then(response => {
+            setEmployees(employees.filter(employee => employee.id !== id));
+        })
+    }
+
 
     return (
         <div className="mt-5">
@@ -60,8 +66,9 @@ function EmployeeList() {
                                     <td>{employee.emailId}</td>
                                     <td>
                                         <div className="text-center">
-                                            <button className="btn btn-light" onClick={() => editEmployee(employee.id)}>Edit</button>
-                                            <button style={{ marginLeft: "10px" }} className="btn btn-dark">Delete</button>
+                                            <button className="btn btn-light" onClick={() => editEmployee(employee.id)}>Editar</button>
+                                            <button style={{ marginLeft: "10px" }} className="btn btn-dark" onClick={() => deleteEmployee(employee.id)}>Eliminar</button>
+                                            <button style={{ marginLeft: "10px" }} className="btn btn-dark" onClick={() => deleteEmployee(employee.id)}>Ver</button>
                                         </div>
                                     </td>
                                 </tr>

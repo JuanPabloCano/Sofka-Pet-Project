@@ -27,6 +27,7 @@ const EmployeeUpdate = () => {
                 });
             });
         })
+
     }, [id])
 
     let navigate = useNavigate();
@@ -48,13 +49,11 @@ const EmployeeUpdate = () => {
     //         emailId: event.target.emailId.value,
     //     });
 
-    //     EmployeeService.updateEmployee(employee.id, employee).then((response) => {
-    //         if (response.ok) {
-    //             response.json().then((data) => {
-    //                 navigate("/employees", { replace: true });
-    //             })
-    //         }
-    //     })
+    //     console.log(employee);
+
+    //     EmployeeService.updateEmployee(employee.id, employee).then(response => {
+    //         console.log(response);
+    //     })    
     // }
 
     const handleCancel = (event) => {
@@ -64,7 +63,7 @@ const EmployeeUpdate = () => {
     return (
         <div className="mt-3">
 
-            <div className="mb-4 text-center col-auto"><h3>Agregar empleado</h3></div>
+            <div className="mb-4 text-center col-auto"><h3>Modificar empleado</h3></div>
 
             <div className="row h-100 justify-content-center align-items-center">
                 <div className="col-auto">

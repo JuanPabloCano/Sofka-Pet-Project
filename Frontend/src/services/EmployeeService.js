@@ -38,6 +38,13 @@ class EmployeeService {
         .catch(error => console.error('Error: ', error))
     }
 
+    async deleteEmployee (employeeId) {
+        return fetch(HOST_API + '/employees/' + employeeId, {
+            method: 'DELETE'
+        })
+        .catch(error => console.error('Error: ', error))
+    }
+
 }
 
 export default new EmployeeService();
