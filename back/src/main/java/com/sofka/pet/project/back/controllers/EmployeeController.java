@@ -13,17 +13,17 @@ public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
 
-    @GetMapping(value = "api/v1/employees")
+    @GetMapping("api/v1/employees")
     public List<EmployeeModel> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 
-    @PostMapping(value = "api/v1/employee")
+    @PostMapping("api/v1/employee")
     public EmployeeModel save(@RequestBody EmployeeModel usuario) {
         return this.employeeService.save(usuario);
     }
 
-    @PutMapping(value = "api/v1/employee")
+    @PutMapping("api/v1/employees/{id}")
     public EmployeeModel update(@RequestBody EmployeeModel employeeModel) {
         if (employeeModel.getId() != null) {
             return employeeService.save(employeeModel);
@@ -31,7 +31,7 @@ public class EmployeeController {
         throw new RuntimeException("Id no encontrado para actualizar");
     }
 
-    @DeleteMapping(path = "api/v1/employee")
+    @DeleteMapping("api/v1/employees/{id}")
     public String delete(@PathVariable("id") Long id) {
         boolean ok = this.employeeService.delete(id);
         if (ok) {
@@ -40,6 +40,7 @@ public class EmployeeController {
         return "No se pudo eliminar el usuario con id " + id;
     }
 
+    @GetMapping("api/v1/employee/{id}")
     public EmployeeModel getById(@PathVariable("id") Long id) {
         return employeeService.getById(id);
     }
