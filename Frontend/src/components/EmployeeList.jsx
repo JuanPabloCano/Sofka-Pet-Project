@@ -36,6 +36,10 @@ function EmployeeList() {
         })
     }
 
+    const viewEmployee = (id) => {
+        navigate(`/employee/view/${id}`, { replace: true });
+    }
+
 
     return (
         <div className="mt-5">
@@ -68,7 +72,7 @@ function EmployeeList() {
                                         <div className="text-center">
                                             <button className="btn btn-light" onClick={() => editEmployee(employee.id)}>Editar</button>
                                             <button style={{ marginLeft: "10px" }} className="btn btn-dark" onClick={() => deleteEmployee(employee.id)}>Eliminar</button>
-                                            <button style={{ marginLeft: "10px" }} className="btn btn-dark" onClick={() => deleteEmployee(employee.id)}>Ver</button>
+                                            <button style={{ marginLeft: "10px" }} className="btn btn-dark" onClick={() => viewEmployee(employee.id)}>Ver</button>
                                         </div>
                                     </td>
                                 </tr>
