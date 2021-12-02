@@ -43,10 +43,10 @@ function EmployeeList() {
 
     return (
         <div className="mt-5">
-            <div className="mb-4 text-center col-auto"><h3>Lista de empleados</h3></div>
+            <div className="mb-4 text-center col-auto"><h3 className="title">Lista de empleados</h3></div>
 
             <div className="row">
-                <button className="btn btn-primary" onClick={() => { addEmployee() }}> Agregar empleado </button>
+                <button className="btn btn-primary btn-inicio" onClick={() => { addEmployee() }}> Agregar empleado </button>
             </div>
 
             <table className="table table-bordered">
@@ -70,9 +70,9 @@ function EmployeeList() {
                                     <td>{employee.emailId}</td>
                                     <td>
                                         <div className="text-center">
-                                            <button className="btn btn-light" onClick={() => editEmployee(employee.id)}>Editar</button>
-                                            <button style={{ marginLeft: "10px" }} className="btn btn-dark" onClick={() => deleteEmployee(employee.id)}>Eliminar</button>
-                                            <button style={{ marginLeft: "10px" }} className="btn btn-dark" onClick={() => viewEmployee(employee.id)}>Ver</button>
+                                            <button className="btn btn-light btn-edit" onClick={() => editEmployee(employee.id)}>Editar</button>
+                                            <button style={{ marginLeft: "10px" }} className="btn btn-dark btn-del" onClick={() => deleteEmployee(employee.id)}>Eliminar</button>
+                                            <button style={{ marginLeft: "10px" }} className="btn btn-dark btn-ver" onClick={() => viewEmployee(employee.id)}>Ver</button>
                                         </div>
                                     </td>
                                 </tr>

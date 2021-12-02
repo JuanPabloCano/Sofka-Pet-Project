@@ -48,7 +48,7 @@ const EmployeeForm = () => {
   return (
     <div className="mt-3">
 
-      <div className="mb-4 text-center col-auto"><h3>Agregar empleado</h3></div>
+      <div className="mb-4 text-center col-auto"><h3 className="title">Agregar empleado</h3></div>
 
       <div className="row h-100 justify-content-center align-items-center">
         <div className="col-auto">
@@ -80,8 +80,8 @@ const EmployeeForm = () => {
 
             <div className="form-group">
               <div className="text-center">
-                <button type="submit" className="btn btn-primary">Agregar</button>
-                <button style={{ marginLeft: "10px" }} className="btn btn-primary" onClick={() => handleCancel()}>Cancelar</button>
+                <button type="submit" className="btn btn-primary btn-ver">Agregar</button>
+                <button style={{ marginLeft: "10px" }} className="btn btn-primary btn-del" onClick={() => handleCancel()}>Cancelar</button>
               </div>
             </div>
 

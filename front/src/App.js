@@ -1,35 +1,37 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import EmployeeList from "./components/EmployeeList";
 import EmployeeForm from "./components/EmployeeForm";
-import EmployeeUpdate from './components/EmployeeUpdate';
-import EmployeeView from './components/EmployeeView';
+import EmployeeUpdate from "./components/EmployeeUpdate";
+import EmployeeView from "./components/EmployeeView";
+import HeaderComponent from "./components/HeaderComponent";
+import {useEffect, useState} from 'react';
 
 
 
 function App() {
-
   return (
     <div>
-      <div className="container">
+      <HeaderComponent />
 
+      <div className="container">
         <Router>
-          <Routes>
-          <Route path="/employee/view/:id" element={<EmployeeView />} />
-            <Route path="/employee/update/:id" element={<EmployeeUpdate />} />
-            <Route path="/employee/add" element={<EmployeeForm />} />
-            <Route path="/employees" element={<EmployeeList />} />            
-            <Route path="/" element={<EmployeeList />} />
-          </Routes>
+          <div className="container">
+            <Routes>
+              <Route path="/employee/view/:id" element={<EmployeeView />} />
+              <Route path="/employee/update/:id" element={<EmployeeUpdate />} />
+              <Route path="/employee/add" element={<EmployeeForm />} />
+              <Route path="/employees" element={<EmployeeList />} />
+              <Route path="/" element={<EmployeeList />} />
+            </Routes>
+          </div>
         </Router>
 
         {/* <EmployeeForm />
         <div className="mt-5">
         <EmployeeList />
         </div> */}
-
-      </div>      
+      </div>
     </div>
   );
 }

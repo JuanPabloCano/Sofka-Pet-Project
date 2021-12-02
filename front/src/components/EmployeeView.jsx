@@ -1,3 +1,4 @@
+import { render } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import EmployeeService from "../services/EmployeeService";
@@ -30,27 +31,34 @@ const EmployeeView = () => {
 
     }, [id])
 
+
+
+  
     return (
-        <div>
+        <div >
             <br />
-            <div className="card col-md-6 offset-md-3"></div>
-            <h3 className="text-center"> Detalles de empleado </h3>
-            <div className="card-body">
+            <br />
+            <div></div>
+            <h3 className="text-center title"> Detalles de empleado </h3>
+            <br />
+            <br />
+            <div className="list-group list-group-flush contenedor">
                 <div className="row">
-                    <label htmlFor="">Nombre: </label>
-                    <div>{ employee.firstName }</div>
+                    <li class="list-group-item-black"   htmlFor="    ">Nombre: </li>
+                    <div class="list-group-item">{ employee.firstName }</div>
                 </div>
                 <div className="row">
-                    <label htmlFor="">Apellido: </label>
-                    <div>{ employee.lastName }</div>
+                    <li class="list-group-item-black" htmlFor="    ">Apellido: </li>
+                    <div class="list-group-item">{ employee.lastName }</div>
                 </div>
                 <div className="row">
-                    <label htmlFor="">Correo: </label>
-                    <div>{ employee.emailId }</div>
+                    <li class="list-group-item-black" htmlFor="    ">Correo: </li>
+                    <div class="list-group-item">{ employee.emailId }</div>
                 </div>
             </div>
         </div>
     )
+
 }
 
 export default EmployeeView;
