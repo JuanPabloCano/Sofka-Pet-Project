@@ -8,6 +8,7 @@ const EmployeeForm = () => {
   const initialState = {
     firstName: "",
     lastName: "",
+    documentId: "",
     emailId: "",
   }
 
@@ -28,6 +29,7 @@ const EmployeeForm = () => {
     setEmployee({
       firstName: event.target.firstName.value,
       lastName: event.target.lastName.value,
+      doumentId: event.target.documentId.value,
       emailId: event.target.emailId.value,
     });
 
@@ -56,7 +58,7 @@ const EmployeeForm = () => {
 
             <div className="form-group ">
               <div className="mb-2">
-                <input type="text" className="form-control" name="firstName" placeholder="First Name"
+                <input type="text" className="form-control" name="firstName" placeholder="Nombre"
                   value={employee.firstName} onChange={handleInputChange}
                 />
               </div>
@@ -64,15 +66,23 @@ const EmployeeForm = () => {
 
             <div className="form-group">
               <div className="mb-2">
-                <input type="text" className="form-control" name="lastName" placeholder="Last Name"
+                <input type="text" className="form-control" name="lastName" placeholder="Apellido"
                   value={employee.lastName} onChange={handleInputChange}
+                />
+              </div>
+            </div>
+
+            <div className="form-group ">
+              <div className="mb-2">
+                <input type="text" className="form-control" name="documentId" placeholder="Documento"
+                  value={employee.documentId} onChange={handleInputChange}
                 />
               </div>
             </div>
 
             <div className="form-group">
               <div className="mb-2">
-                <input type="email" className="form-control" name="emailId" placeholder="Email"
+                <input type="email" className="form-control" name="emailId" placeholder="Correo"
                   value={employee.emailId} onChange={handleInputChange}
                 />
               </div>

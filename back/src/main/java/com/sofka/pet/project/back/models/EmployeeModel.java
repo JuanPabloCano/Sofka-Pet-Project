@@ -1,7 +1,5 @@
 package com.sofka.pet.project.back.models;
 
-import lombok.*;
-
 import javax.persistence.*;
 
 @Entity
@@ -14,9 +12,8 @@ public class EmployeeModel {
     private Long id;
 
     private String firstName;
-
     private String lastName;
-
+    private String documentId;
     private String emailId;
 
     public Long getId() {
@@ -41,6 +38,14 @@ public class EmployeeModel {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getDocumentId() {
+        return documentId;
+    }
+
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 
     public String getEmailId() {

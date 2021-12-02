@@ -12,6 +12,7 @@ const EmployeeView = () => {
         id: id,
         firstName: "",
         lastName: "",
+        documentId: "",
         emailId: "",
     }
 
@@ -24,6 +25,7 @@ const EmployeeView = () => {
                     ...employee,
                     firstName: data.firstName,
                     lastName: data.lastName,
+                    documentId: data.documentId,
                     emailId: data.emailId,
                 });
             });
@@ -50,6 +52,10 @@ const EmployeeView = () => {
                 <div className="row">
                     <li className="list-group-item-black" htmlFor="    ">Apellido: </li>
                     <div className="list-group-item">{ employee.lastName }</div>
+                </div>
+                <div className="row">
+                    <li className="list-group-item-black" htmlFor="    ">Documento: </li>
+                    <div className="list-group-item">{ employee.documentId }</div>
                 </div>
                 <div className="row">
                     <li className="list-group-item-black" htmlFor="    ">Correo: </li>

@@ -80,7 +80,7 @@ function EmployeeList() {
                 <table className="table table-bordered">
                     <thead>
                         <tr className="text-center">
-                            <th scope="col">Id</th>
+                            <th scope="col">Documento</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
                             <th scope="col">Correo</th>
@@ -92,7 +92,7 @@ function EmployeeList() {
                             employees.map((employee) => {
                                 return (
                                     <tr className="text-center" key={employee.id}>
-                                        <td>{employee.id}</td>
+                                        <td>{employee.documentId}</td>
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
