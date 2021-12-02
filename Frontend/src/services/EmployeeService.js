@@ -1,5 +1,5 @@
 
-const HOST_API = 'http://localhost:4000/api/v1/';
+const HOST_API = 'http://localhost:8080/api/';
 
 class EmployeeService {
 
