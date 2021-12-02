@@ -1,13 +1,13 @@
-package com.back.back.EmployeeMain;
+package com.sofka.pet.project.back;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BackApplication {
+public class ApiRestExampleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackApplication.class, args);
+		SpringApplication.run(ApiRestExampleApplication.class, args);
 	}
 
 }

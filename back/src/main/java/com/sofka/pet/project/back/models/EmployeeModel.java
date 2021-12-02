@@ -1,4 +1,4 @@
-package com.back.back.EmployeeModel;
+package com.sofka.pet.project.back.models;
 
 import lombok.*;
 
@@ -14,8 +14,11 @@ public class EmployeeModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-    private String name;
-    private String lastName;
-    private String email;
-}
 
+    private String name;
+
+    private String last_name;
+
+    private String email;
+
+}
