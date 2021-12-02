@@ -1,5 +1,5 @@
 
-const HOST_API = 'http://localhost:4000/api/v1';
+const HOST_API = 'http://localhost:8080/api/v1';
 
 class EmployeeService {
 
@@ -12,7 +12,7 @@ class EmployeeService {
     }
 
     async saveEmployee (employee) {
-        return fetch(HOST_API + '/employees', {
+        return fetch(HOST_API + '/employee', {
             method: 'POST',
             body: JSON.stringify(employee),
             headers: {
@@ -23,7 +23,7 @@ class EmployeeService {
     }
 
     async getEmployeeById(employeeId) {
-        return fetch(HOST_API + '/employees/' + employeeId)
+        return fetch(HOST_API + '/employee/' + employeeId)
         .catch(error => console.error('Error: ', error))
     }
 

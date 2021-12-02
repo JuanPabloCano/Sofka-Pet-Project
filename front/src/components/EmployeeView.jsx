@@ -44,16 +44,16 @@ const EmployeeView = () => {
             <br />
             <div className="list-group list-group-flush contenedor">
                 <div className="row">
-                    <li class="list-group-item-black"   htmlFor="    ">Nombre: </li>
-                    <div class="list-group-item">{ employee.firstName }</div>
+                    <li className="list-group-item-black"   htmlFor="    ">Nombre: </li>
+                    <div className="list-group-item">{ employee.firstName }</div>
                 </div>
                 <div className="row">
-                    <li class="list-group-item-black" htmlFor="    ">Apellido: </li>
-                    <div class="list-group-item">{ employee.lastName }</div>
+                    <li className="list-group-item-black" htmlFor="    ">Apellido: </li>
+                    <div className="list-group-item">{ employee.lastName }</div>
                 </div>
                 <div className="row">
-                    <li class="list-group-item-black" htmlFor="    ">Correo: </li>
-                    <div class="list-group-item">{ employee.emailId }</div>
+                    <li className="list-group-item-black" htmlFor="    ">Correo: </li>
+                    <div className="list-group-item">{ employee.emailId }</div>
                 </div>
             </div>
         </div>
