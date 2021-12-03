@@ -1,6 +1,6 @@
-package com.sofka.pet.project.back.repositories;
+package com.sofka.pet.project.back.Repositories;
 
-import com.sofka.pet.project.back.models.AdminModel;
+import com.sofka.pet.project.back.Models.AdminModel;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdminRepository extends CrudRepository<AdminModel, Long> {
 
-    public abstract AdminModel findByUserAdminAndPasswordAdmin(String userAdmin, String passwordAdmin);
+    AdminModel findByUserAdminAndPasswordAdmin(String userAdmin, String passwordAdmin);
     
 }

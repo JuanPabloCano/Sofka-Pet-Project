@@ -1,6 +1,6 @@
-package com.sofka.pet.project.back.repositories;
+package com.sofka.pet.project.back.Repositories;
 
-import com.sofka.pet.project.back.models.EmployeeModel;
+import com.sofka.pet.project.back.Models.EmployeeModel;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
