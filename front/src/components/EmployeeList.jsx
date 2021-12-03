@@ -1,15 +1,16 @@
 import { faAd, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import EmployeeService from "../services/EmployeeService";
 
 function EmployeeList() {
+
+    const { isAdmin } = useParams()
+
     const [employees, setEmployees] = useState([]);
     const [employeesFilter, setEmployeesFilter] = useState([]);
-
-
 
     const [busqueda, setBusqueda] = useState("");
 
@@ -60,7 +61,8 @@ function EmployeeList() {
         let searchResult = employeesFilter.filter((elemento) => {
             if (
                 elemento.firstName.toLowerCase().includes(term.toLowerCase()) ||
-                elemento.lastName.toLowerCase().includes(term.toLowerCase())
+                elemento.lastName.toLowerCase().includes(term.toLowerCase()) || 
+                elemento.documentId.includes(term)
             ) {
                 return elemento;
             }
@@ -68,13 +70,22 @@ function EmployeeList() {
         setEmployees(searchResult);
     };
 
+    const goAdmin = () => {
+        navigate("/admin", { replace: true });
+    }
+
     return (
+
         <div className="mt-5">
+
+            <div><a href="" onClick={goAdmin}>Soy admin</a></div>
+
             <div className="mb-4 text-center col-auto">
                 <h3 className="title">Lista de empleados</h3>
             </div>
 
             <div className="row prueba">
+                {isAdmin === "isAdmin" &&
                 <button
                     className="btn btn-primary btn-inicio"
                     onClick={() => {
@@ -84,6 +95,7 @@ function EmployeeList() {
                     {" "}
                     Agregar empleado <FontAwesomeIcon icon={faPlus} />
                 </button>
+                }
             </div>
 
             {/* Barra de búsqueda */}
@@ -111,7 +123,7 @@ function EmployeeList() {
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
                             <th scope="col">Correo</th>
-                            <th scope="col">Opciones</th>
+                            { isAdmin === "isAdmin" && <th scope="col">Opciones</th> }
                         </tr>
                     </thead>
                     <tbody>
@@ -122,6 +134,7 @@ function EmployeeList() {
                                     <td>{employee.firstName}</td>
                                     <td>{employee.lastName}</td>
                                     <td>{employee.emailId}</td>
+                                    { isAdmin === "isAdmin" &&
                                     <td>
                                         <div className="text-center">
                                             <button
@@ -146,6 +159,7 @@ function EmployeeList() {
                                             </button>
                                         </div>
                                     </td>
+                                }
                                 </tr>
                             );
                         })}
