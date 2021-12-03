@@ -75,7 +75,7 @@ const EmployeeUpdate = () => {
                         <div className="form-group ">
                             <div className="mb-2">
                                 <input type="text" className="form-control" name="firstName" placeholder="Nombre"
-                                    value={employee.firstName} onChange={handleInputChange}
+                                    value={employee.firstName} onChange={handleInputChange} required
                                 />
                             </div>
                         </div>
@@ -83,7 +83,7 @@ const EmployeeUpdate = () => {
                         <div className="form-group">
                             <div className="mb-2">
                                 <input type="text" className="form-control" name="lastName" placeholder="Apellido"
-                                    value={employee.lastName} onChange={handleInputChange}
+                                    value={employee.lastName} onChange={handleInputChange} required
                                 />
                             </div>
                         </div>
@@ -91,7 +91,7 @@ const EmployeeUpdate = () => {
                         <div className="form-group ">
                             <div className="mb-2">
                                 <input type="text" className="form-control" name="documentId" placeholder="Documento"
-                                    value={employee.documentId} onChange={handleInputChange}
+                                    value={employee.documentId} onChange={handleInputChange} required
                                 />
                             </div>
                         </div>
@@ -99,7 +99,7 @@ const EmployeeUpdate = () => {
                         <div className="form-group">
                             <div className="mb-2">
                                 <input type="email" className="form-control" name="emailId" placeholder="Correo"
-                                    value={employee.emailId} onChange={handleInputChange}
+                                    value={employee.emailId} onChange={handleInputChange} required
                                 />
                             </div>
                         </div>
