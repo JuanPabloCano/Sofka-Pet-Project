@@ -215,3 +215,9 @@ table{
   text-align: center;
   
 }
+
+.cerrar{
+  text-decoration: none;
+  background: none;
+  color: #ffffff;
+}
