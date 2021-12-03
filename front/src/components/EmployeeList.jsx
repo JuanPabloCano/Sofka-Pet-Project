@@ -78,9 +78,12 @@ function EmployeeList() {
 
         <div className="mt-5">
 
-            <div><a href="" onClick={goAdmin}>Soy admin</a></div>
             {
-                isAdmin == "isAdmin" && <a href="/employees">Cerrar sesión</a>
+                isAdmin != "isAdmin" && <div><a href="" onClick={goAdmin}>Soy admin</a></div>
+            }
+
+            {
+                isAdmin == "isAdmin" && <div><a href="/employees">Cerrar sesión</a></div>
             }
 
             <div className="mb-4 text-center col-auto">
