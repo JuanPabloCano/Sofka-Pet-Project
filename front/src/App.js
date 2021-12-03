@@ -5,13 +5,6 @@ import EmployeeForm from "./components/EmployeeForm";
 import EmployeeUpdate from "./components/EmployeeUpdate";
 import EmployeeView from "./components/EmployeeView";
 import HeaderComponent from "./components/HeaderComponent";
-<<<<<<< HEAD
-import Login from "./components/Login";
-
-
-=======
-import Login from "./pages/Login";
->>>>>>> origin/login
 
 function App() {
   return (
