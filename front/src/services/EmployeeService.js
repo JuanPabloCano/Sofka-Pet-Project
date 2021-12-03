@@ -45,6 +45,17 @@ class EmployeeService {
         .catch(error => console.error('Error: ', error))
     }
 
+    async consultAdmin (admin) {
+        return fetch(HOST_API + '/admin', {
+            method: 'POST',
+            body: JSON.stringify(admin),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .catch(error => console.error('Error: ', error))
+    }
+
 }
 
 export default new EmployeeService();

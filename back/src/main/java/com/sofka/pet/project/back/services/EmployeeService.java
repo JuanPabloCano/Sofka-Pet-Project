@@ -44,7 +44,7 @@ public class EmployeeService {
     }
 
     public AdminModel getByNameAndPassword(String username, String password) {
-        return adminRepository.findByUsernameAndPassword( username, password );
+        return adminRepository.findByUserAdminAndPasswordAdmin( username, password );
     }
 
 }

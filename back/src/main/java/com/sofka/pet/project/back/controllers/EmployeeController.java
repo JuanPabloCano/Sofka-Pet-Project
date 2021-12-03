@@ -6,13 +6,21 @@ import com.sofka.pet.project.back.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class EmployeeController {
 
+    private EmployeeService employeeService;
+    
     @Autowired
-    EmployeeService employeeService;
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+    
 
     @GetMapping("api/v1/employees")
     public List<EmployeeModel> getAllEmployees() {
@@ -54,13 +62,16 @@ public class EmployeeController {
         return employee;
     }
 
-    @GetMapping("api/v1/employee/{name}/{password}")
-    public AdminModel getByNameAndPassword(@PathVariable("name") String name, @PathVariable("password") String password) {
-        AdminModel admin = employeeService.getByNameAndPassword(name, password);
-        if (admin == null) {
-            throw new RuntimeException("No se encontró el usuario con nombre " + name);
+    @PostMapping(value="api/v1/admin")
+    public Boolean saveAdmin(@RequestBody AdminModel admin) {
+        AdminModel adminDB = employeeService.getByNameAndPassword(admin.getUserAdmin(), admin.getPasswordAdmin());
+
+        if (adminDB == null) {
+            return false;
         }
-        return admin;
+        return true;
     }
+    
+    
 
 }
