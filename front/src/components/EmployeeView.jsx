@@ -36,7 +36,7 @@ const EmployeeView = () => {
     let navigate = useNavigate();
 
     const handleCancel = (event) => {
-        navigate("/employees", { replace: true });
+        navigate("/employees/isAdmin", { replace: true });
     }
   
     return (

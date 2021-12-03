@@ -36,14 +36,14 @@ const EmployeeForm = () => {
       if (response.ok) {
         response.json().then((data) => {
           setEmployee(initialState);
-          navigate("/employees", { replace: true });
+          navigate("/employees/isAdmin", { replace: true });
         });
       }
     });
   };
 
   const handleCancel = (event) => {
-    navigate("/employees", { replace: true });
+    navigate("/employees/isAdmin", { replace: true });
   };
 
   return (

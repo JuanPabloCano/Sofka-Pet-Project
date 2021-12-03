@@ -54,13 +54,13 @@ const EmployeeUpdate = () => {
 
         EmployeeService.updateEmployee(employee.id, employee).then(response => {
             response.json().then(data => {
-                navigate('/employees');
+                navigate('/employees/isAdmin');
             })
         })
     }
 
     const handleCancel = (event) => {
-        navigate("/employees", { replace: true });
+        navigate("/employees/isAdmin", { replace: true });
     }
 
     return (
