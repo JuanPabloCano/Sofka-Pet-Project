@@ -5,20 +5,18 @@ import EmployeeForm from "./components/EmployeeForm";
 import EmployeeUpdate from "./components/EmployeeUpdate";
 import EmployeeView from "./components/EmployeeView";
 import HeaderComponent from "./components/HeaderComponent";
-import {useEffect, useState} from 'react';
-
-
+import Login from "./pages/Login";
 
 function App() {
   return (
     <div>
       <HeaderComponent />
-
       <div className="container">
         <Router>
           <div className="container">
             <Routes>
-              <Route path="/employee/view/:id" element={<EmployeeView />} />
+              <Route exact path="/" element={<Login />} />
+              <Route exact path="/employee/view/:id" element={<EmployeeView />} />
               <Route path="/employee/update/:id" element={<EmployeeUpdate />} />
               <Route path="/employee/add" element={<EmployeeForm />} />
               <Route path="/employees" element={<EmployeeList />} />

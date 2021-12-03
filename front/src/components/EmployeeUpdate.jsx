@@ -11,6 +11,7 @@ const EmployeeUpdate = () => {
         id: id,
         firstName: "",
         lastName: "",
+        documentId: "",
         emailId: "",
     }
 
@@ -23,6 +24,7 @@ const EmployeeUpdate = () => {
                     ...employee,
                     firstName: data.firstName,
                     lastName: data.lastName,
+                    documentId: data.documentId,
                     emailId: data.emailId,
                 });
             });
@@ -46,6 +48,7 @@ const EmployeeUpdate = () => {
             ...employee,
             firstName: event.target.firstName.value,
             lastName: event.target.lastName.value,
+            documentId: event.target.documentId.value,
             emailId: event.target.emailId.value,
         });
 
@@ -53,7 +56,7 @@ const EmployeeUpdate = () => {
             response.json().then(data => {
                 navigate('/employees');
             })
-        })    
+        })
     }
 
     const handleCancel = (event) => {
@@ -71,7 +74,7 @@ const EmployeeUpdate = () => {
 
                         <div className="form-group ">
                             <div className="mb-2">
-                                <input type="text" className="form-control" name="firstName" placeholder="First Name"
+                                <input type="text" className="form-control" name="firstName" placeholder="Nombre"
                                     value={employee.firstName} onChange={handleInputChange}
                                 />
                             </div>
@@ -79,15 +82,23 @@ const EmployeeUpdate = () => {
 
                         <div className="form-group">
                             <div className="mb-2">
-                                <input type="text" className="form-control" name="lastName" placeholder="Last Name"
+                                <input type="text" className="form-control" name="lastName" placeholder="Apellido"
                                     value={employee.lastName} onChange={handleInputChange}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="form-group ">
+                            <div className="mb-2">
+                                <input type="text" className="form-control" name="documentId" placeholder="Documento"
+                                    value={employee.documentId} onChange={handleInputChange}
                                 />
                             </div>
                         </div>
 
                         <div className="form-group">
                             <div className="mb-2">
-                                <input type="email" className="form-control" name="emailId" placeholder="Email"
+                                <input type="email" className="form-control" name="emailId" placeholder="Correo"
                                     value={employee.emailId} onChange={handleInputChange}
                                 />
                             </div>

@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import EmployeeService from "../services/EmployeeService";
 
 const EmployeeForm = () => {
-
   const initialState = {
     firstName: "",
     lastName: "",
+    documentId: "",
     emailId: "",
-  }
+  };
 
   const [employee, setEmployee] = useState(initialState);
 
@@ -18,9 +18,9 @@ const EmployeeForm = () => {
   const handleInputChange = (event) => {
     setEmployee({
       ...employee,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
-  }
+  };
 
   const saveEmployee = (event) => {
     event.preventDefault();
@@ -28,6 +28,7 @@ const EmployeeForm = () => {
     setEmployee({
       firstName: event.target.firstName.value,
       lastName: event.target.lastName.value,
+      doumentId: event.target.documentId.value,
       emailId: event.target.emailId.value,
     });
 
@@ -36,61 +37,99 @@ const EmployeeForm = () => {
         response.json().then((data) => {
           setEmployee(initialState);
           navigate("/employees", { replace: true });
-        })
+        });
       }
-    })
-  }
+    });
+  };
 
   const handleCancel = (event) => {
     navigate("/employees", { replace: true });
-  }
+  };
 
   return (
     <div className="mt-3">
-
-      <div className="mb-4 text-center col-auto"><h3 className="title">Agregar empleado</h3></div>
+      <div className="mb-4 text-center col-auto">
+        <h3 className="title">Agregar empleado</h3>
+      </div>
 
       <div className="row h-100 justify-content-center align-items-center">
         <div className="col-auto">
-          <form action="" className="form-horizontal justify-content-center" onSubmit={saveEmployee}>
+          <form
+            action=""
+            className="form-horizontal justify-content-center"
+            onSubmit={saveEmployee}
+          >
+            <div className="form-group ">
+              <div className="mb-2">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="firstName"
+                  placeholder="Nombre"
+                  value={employee.firstName}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <div className="mb-2">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="lastName"
+                  placeholder="Apellido"
+                  value={employee.lastName}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
 
             <div className="form-group ">
               <div className="mb-2">
-                <input type="text" className="form-control" name="firstName" placeholder="First Name"
-                  value={employee.firstName} onChange={handleInputChange}
+                <input
+                  type="text"
+                  className="form-control"
+                  name="documentId"
+                  placeholder="Documento"
+                  value={employee.documentId}
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
 
             <div className="form-group">
               <div className="mb-2">
-                <input type="text" className="form-control" name="lastName" placeholder="Last Name"
-                  value={employee.lastName} onChange={handleInputChange}
-                />
-              </div>
-            </div>
-
-            <div className="form-group">
-              <div className="mb-2">
-                <input type="email" className="form-control" name="emailId" placeholder="Email"
-                  value={employee.emailId} onChange={handleInputChange}
+                <input
+                  type="email"
+                  className="form-control"
+                  name="emailId"
+                  placeholder="Correo"
+                  value={employee.emailId}
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
 
             <div className="form-group">
               <div className="text-center">
-                <button type="submit" className="btn btn-primary btn-ver">Agregar</button>
-                <button style={{ marginLeft: "10px" }} className="btn btn-primary btn-del" onClick={() => handleCancel()}>Cancelar</button>
+                <button type="submit" className="btn btn-primary btn-ver">
+                  Agregar 
+                </button>
+                <button
+                  style={{ marginLeft: "10px" }}
+                  className="btn btn-primary btn-del"
+                  onClick={() => handleCancel()}
+                >
+                  Cancelar
+                </button>
               </div>
             </div>
-
           </form>
         </div>
       </div>
-
     </div>
   );
-}
+};
 
 export default EmployeeForm;
