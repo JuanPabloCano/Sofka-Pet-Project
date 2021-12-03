@@ -131,19 +131,87 @@ code {
   border-bottom-left-radius: 18px;
 }
 
-.list-group-item-black{
-  
-  width: 10%;
-  height: 30%;
-}
 .list-group-item{
   
-  width: 25%;
-  height: 100%;
   text-align: center;
-  background-color: #FFBC7E;
+  background-color: #FF9737;
+  max-width: 400px;
+  
 }
+.list-group-item-a{
+ 
+  text-align: center;
+  background-color: #828282;
+  list-style: none;
+  max-width: 400px;
+}
+
+
 .contenedor {
   display: flex;
   justify-content: center;
+  align-items: center;
+
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+}
+.tabla-responsive {
+  margin: 200px;
+  
+}
+
+.inputBuscar{
+  width: 50% !important;
+}
+
+table{
+  min-width: 500px;
+}
+
+.containerInput{
+  align-items: end;
+  right: 0;
+  display: flex;
+  justify-content:center;
+  padding-bottom: 25px;
+  padding-top: 5px;
+  
+}
+.prueba{
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 988px){
+  
+  .inputBuscar{
+    width: 100% !important;
+  }
+
+  .App{
+    padding: 40px 5px;
+  }
+
+  
+.containerInput{
+  padding-bottom: 15px;
+}
+
+
+}
+.containerPrincipal {
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ffffff;
+    padding: 40px;
+}
+
+.containerSecundario{
+  text-align: center;
+  
 }
