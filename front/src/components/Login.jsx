@@ -31,10 +31,11 @@ const Login = () => {
       response.json().then(data => {
         if (data === true) {
           navigate("/employees/isAdmin", { replace: true });
+        } else {
+          alert("Usuario o contraseña incorrectos");
         }
       })
     });
-
   }
 
   const handleCancel = (event) => {

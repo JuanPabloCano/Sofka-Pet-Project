@@ -61,7 +61,7 @@ function EmployeeList() {
         let searchResult = employeesFilter.filter((elemento) => {
             if (
                 elemento.firstName.toLowerCase().includes(term.toLowerCase()) ||
-                elemento.lastName.toLowerCase().includes(term.toLowerCase()) || 
+                elemento.lastName.toLowerCase().includes(term.toLowerCase()) ||
                 elemento.documentId.includes(term)
             ) {
                 return elemento;
@@ -74,16 +74,20 @@ function EmployeeList() {
         navigate("/admin", { replace: true });
     }
 
+    const outAdmin = () => {
+        navigate("/employees", { replace: true });
+    }
+
     return (
 
         <div className="mt-5">
 
             {
-                isAdmin != "isAdmin" && <div><a href="" onClick={goAdmin}>Soy admin</a></div>
+                isAdmin != "isAdmin" && <button className="btn btn-primary btn-ver" onClick={goAdmin}>Soy admin</button>
             }
 
             {
-                isAdmin == "isAdmin" && <div><a href="/employees">Cerrar sesión</a></div>
+                isAdmin == "isAdmin" && <button className="btn btn-primary btn-del" onClick={outAdmin}>Cerrar sesión</button>
             }
 
             <div className="mb-4 text-center col-auto">
@@ -92,15 +96,15 @@ function EmployeeList() {
 
             <div className="row prueba">
                 {isAdmin === "isAdmin" &&
-                <button
-                    className="btn btn-primary btn-inicio"
-                    onClick={() => {
-                        addEmployee();
-                    }}
-                >
-                    {" "}
-                    Agregar empleado <FontAwesomeIcon icon={faPlus} />
-                </button>
+                    <button
+                        className="btn btn-primary btn-inicio"
+                        onClick={() => {
+                            addEmployee();
+                        }}
+                    >
+                        {" "}
+                        Agregar empleado <FontAwesomeIcon icon={faPlus} />
+                    </button>
                 }
             </div>
 
@@ -129,7 +133,7 @@ function EmployeeList() {
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
                             <th scope="col">Correo</th>
-                            { isAdmin === "isAdmin" && <th scope="col">Opciones</th> }
+                            {isAdmin === "isAdmin" && <th scope="col">Opciones</th>}
                         </tr>
                     </thead>
                     <tbody>
@@ -140,32 +144,32 @@ function EmployeeList() {
                                     <td>{employee.firstName}</td>
                                     <td>{employee.lastName}</td>
                                     <td>{employee.emailId}</td>
-                                    { isAdmin === "isAdmin" &&
-                                    <td>
-                                        <div className="text-center">
-                                            <button
-                                                className="btn btn-light btn-edit"
-                                                onClick={() => editEmployee(employee.id)}
-                                            >
-                                                Editar
-                                            </button>
-                                            <button
-                                                style={{ marginLeft: "10px" }}
-                                                className="btn btn-dark btn-del"
-                                                onClick={() => deleteEmployee(employee.id)}
-                                            >
-                                                Eliminar
-                                            </button>
-                                            <button
-                                                style={{ marginLeft: "10px" }}
-                                                className="btn btn-dark btn-ver"
-                                                onClick={() => viewEmployee(employee.id)}
-                                            >
-                                                Ver
-                                            </button>
-                                        </div>
-                                    </td>
-                                }
+                                    {isAdmin === "isAdmin" &&
+                                        <td>
+                                            <div className="text-center">
+                                                <button
+                                                    className="btn btn-light btn-edit"
+                                                    onClick={() => editEmployee(employee.id)}
+                                                >
+                                                    Editar
+                                                </button>
+                                                <button
+                                                    style={{ marginLeft: "10px" }}
+                                                    className="btn btn-dark btn-del"
+                                                    onClick={() => deleteEmployee(employee.id)}
+                                                >
+                                                    Eliminar
+                                                </button>
+                                                <button
+                                                    style={{ marginLeft: "10px" }}
+                                                    className="btn btn-dark btn-ver"
+                                                    onClick={() => viewEmployee(employee.id)}
+                                                >
+                                                    Ver
+                                                </button>
+                                            </div>
+                                        </td>
+                                    }
                                 </tr>
                             );
                         })}
