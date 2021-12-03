@@ -1,4 +1,4 @@
-package com.sofka.pet.project.back.models;
+package com.sofka.pet.project.back.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,10 +14,9 @@ public class AdminModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String userAdmin;
     private String passwordAdmin;
+    private String userAdmin;
 
-    
 
     public Long getId() {
         return id;
@@ -42,5 +41,4 @@ public class AdminModel {
     public void setPasswordAdmin(String passwordAdmin) {
         this.passwordAdmin = passwordAdmin;
     }
-    
 }

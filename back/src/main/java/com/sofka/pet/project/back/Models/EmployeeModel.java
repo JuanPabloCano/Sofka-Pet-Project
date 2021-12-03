@@ -1,4 +1,4 @@
-package com.sofka.pet.project.back.models;
+package com.sofka.pet.project.back.Models;
 
 import javax.persistence.*;
 

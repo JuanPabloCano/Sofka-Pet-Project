@@ -1,8 +1,9 @@
-package com.sofka.pet.project.back.controllers;
+package com.sofka.pet.project.back.Controllers;
 
-import com.sofka.pet.project.back.models.AdminModel;
-import com.sofka.pet.project.back.models.EmployeeModel;
-import com.sofka.pet.project.back.services.EmployeeService;
+import com.sofka.pet.project.back.Exceptions.NotFoundException;
+import com.sofka.pet.project.back.Models.AdminModel;
+import com.sofka.pet.project.back.Models.EmployeeModel;
+import com.sofka.pet.project.back.Services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class EmployeeController {
+
+    private static final String NOT_FOUND_EXCEPTION = "No se encontraron empleados";
+    private static final String FAILED_UPDATE = "No se pudo actualizar el empleado";
+    private static final String ID_NOT_FOUND = "Empleado no encontrado";
 
     private EmployeeService employeeService;
     
@@ -26,7 +31,7 @@ public class EmployeeController {
     public List<EmployeeModel> getAllEmployees() {
         List<EmployeeModel> employees = employeeService.getAllEmployees();
         if (employees.isEmpty()) {
-            throw new RuntimeException("No hay empleados registrados");
+            throw new NotFoundException(NOT_FOUND_EXCEPTION);
         }
         return employees;
     }
@@ -41,7 +46,7 @@ public class EmployeeController {
         if (employeeModel.getId() != null) {
             return employeeService.save(employeeModel);
         }
-        throw new RuntimeException("No se pudo actualizar el usuario");
+        throw new NotFoundException(FAILED_UPDATE);
     }
 
     @DeleteMapping("api/v1/employees/{id}")
@@ -57,7 +62,7 @@ public class EmployeeController {
     public EmployeeModel getById(@PathVariable("id") Long id) {
         EmployeeModel employee = employeeService.getById(id);
         if (employee == null) {
-            throw new RuntimeException("No se encontró el usuario con id " + id);
+            throw new NotFoundException(ID_NOT_FOUND);
         }
         return employee;
     }

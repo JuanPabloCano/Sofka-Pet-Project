@@ -1,9 +1,10 @@
-package com.sofka.pet.project.back.services;
+package com.sofka.pet.project.back.Services;
 
-import com.sofka.pet.project.back.models.AdminModel;
-import com.sofka.pet.project.back.models.EmployeeModel;
-import com.sofka.pet.project.back.repositories.AdminRepository;
-import com.sofka.pet.project.back.repositories.EmployeeRepository;
+import com.sofka.pet.project.back.Exceptions.NotFoundException;
+import com.sofka.pet.project.back.Models.AdminModel;
+import com.sofka.pet.project.back.Models.EmployeeModel;
+import com.sofka.pet.project.back.Repositories.AdminRepository;
+import com.sofka.pet.project.back.Repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,10 @@ import java.util.*;
 @Service
 public class EmployeeService {
 
+    private static final String NOT_FOUND_EXCEPTION = "Empleado no encontrado";
     private EmployeeRepository employeeRepository;
     private AdminRepository adminRepository;
-    
+
     @Autowired
     public EmployeeService(EmployeeRepository employeeRepository, AdminRepository adminRepository) {
         this.employeeRepository = employeeRepository;
@@ -31,7 +33,8 @@ public class EmployeeService {
     }
 
     public EmployeeModel getById(Long id) {
-        return employeeRepository.findById(id).orElseThrow();
+        return employeeRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException(NOT_FOUND_EXCEPTION));
     }
 
     public boolean delete(Long id) {
