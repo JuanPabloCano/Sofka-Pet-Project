@@ -1,5 +1,8 @@
 SOFKA PET PROJECT
 
+![image](https://user-images.githubusercontent.com/62584398/144643847-50a5b73f-260c-4a32-a7d2-c003a02e18fe.png)
+
+
 Employee management system
 
 Tecnologías
